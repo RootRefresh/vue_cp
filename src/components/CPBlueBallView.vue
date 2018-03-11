@@ -1,11 +1,12 @@
 <template>
-    $END$
+  <div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "c-p-blue-ball-view"
-    }
+export default {
+  name: 'cpBlueBallView'
+}
 </script>
 
 <style scoped>

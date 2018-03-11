@@ -51,3 +51,28 @@
     display: inline-block;
     margin-left: 20px;
 }
+
+.btn:active,
+.btn:focus,
+.btn:active.focus{
+  outline: none;
+}
+
+.bg_color{
+  background: #F6F6F6;
+}
+
+.screen_size{
+  width: 400px;
+  height: 667px;
+}
+
+.container {
+  overflow: hidden;
+  min-height: 100%;
+}
+.container:before {
+  height: 2.75rem; }
+.container:after {
+  height: 0.625rem; }
+
