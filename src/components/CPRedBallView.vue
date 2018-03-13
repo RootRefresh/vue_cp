@@ -1,5 +1,5 @@
 <template>
-  <div id="" class="bg_color">
+  <div id="ball_bg" class="bg_color">
     <div class="ball-div clearfix">
       <button class="ball red_color btn" v-for="item in redBalls" :key="item.id" v-bind:class='{red_ball_select:item.select}' v-on:click="ballChoose(item)">{{item.value}}</button>
     </div>
@@ -50,9 +50,12 @@ export default {
 
 <style scoped>
 @import url('../assets/css/home.css');
+#ball_bg{
+    height:13.946rem
+}
 .ball-div{
   overflow: hidden;
-  padding: 30px 0;
+  padding: 0.4rem 0;
 
 }
 .blue_ball_div{
@@ -64,12 +67,12 @@ export default {
   float: left;
   text-align:center;
   vertical-align:middle;
-  width:30px;
-  height:30px;
-  line-height:30px;
-  border: 1px solid #999;
-  border-radius:15px;
-  margin: 10px 10px 10px 10px
+  width:0.7rem;
+  height:0.7rem;
+  line-height:0.7rem;
+  border: 0.013rem solid #999;
+  border-radius:0.35rem;
+  margin: 0.266rem;
 }
 .red_color{
   color:red;

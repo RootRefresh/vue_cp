@@ -20,9 +20,9 @@ export default {
   @import '../assets/css/home.css';
   .top{
     top: 0;
-    z-index: 9;
+    z-index: 2;
     width: 100%;
-    height: 64px;
+    height: 1.706rem;
     background-color: #00B478;
     position: fixed;
   }
@@ -30,17 +30,18 @@ export default {
     float: left;
   }
   button{
-    margin: 20px 0 auto 15px;
+    margin: 0.533rem 0 auto 0.4rem;
     background-color: transparent;
     color: white;
     border: none;
-    font-size: 14px;
+    font-size: 0.373rem;
   }
   p{
-    margin-top: 18px;
-    margin-left: 30%;
+margin-left: 30%;
     color: #F6F6F6;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 0.48rem;
+    line-height: 1.706rem;
+    height: 1.706rem;
   }
 </style>

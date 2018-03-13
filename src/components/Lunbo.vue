@@ -43,14 +43,19 @@ export default {
 </script>
 
 <style scoped>
+/**{
+    margin: 0;
+    padding: 0;
+}*/
 .bfc{
-  margin-top: 55px;
+  padding-top: 1.706rem;
   /*overflow: hidden;*/
   /*position: relative;*/
 }
+img,
 .swiper-container{
     width: 100%;
-    height: 200px;
+    height: 4rem;
 }
 .swiper-slide{
     background: orange;

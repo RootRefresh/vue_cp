@@ -37,19 +37,19 @@
     border-left-color: transparent;
     border-right-color: transparent;
     border-top-color: transparent;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 0.133rem;
+    padding-bottom: 0.133rem;
 }
 .li-item img{
     display: block;
-    width: 42px;
-    height: 42px;
+    width: 0.666666rem;
+    height: 0.666666rem;
     float: left;
 }
 
 .cp-text{
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 0.266666rem;
 }
 
 .btn:active,

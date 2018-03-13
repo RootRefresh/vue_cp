@@ -65,14 +65,17 @@ export default {
     padding: 0;
   }
 div{
-  height: 2.75rem;
+  height: 80px;
 }
   ul{
     position: fixed;
     bottom: 0;
     width: 100%;
     padding-top: 0.15625rem;
-    height: 2.59375rem;
+    /*height: 2.59375rem;*/
+    /*font-size: 0.5625rem;*/
+    /*padding-top: 0;*/
+    height: 50px;
     font-size: 0.5625rem;
     background: #e3e3e3;
     border-top: 2px #dcdcdc solid;

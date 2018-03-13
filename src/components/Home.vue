@@ -56,5 +56,8 @@ export default {
 </script>
 
 <style scoped>
-@import '../assets/css/home.css';
+@import url("../assets/css/home.css");
+ul{
+    margin-bottom: 1.333rem;
+}
 </style>

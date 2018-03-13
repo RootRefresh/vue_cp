@@ -14,17 +14,17 @@ export default {
   @import '../assets/css/home.css';
   .top{
     top: 0;
-    z-index: 9;
+    z-index: 2;
     width: 100%;
-    height: 64px;
+    height: 1.706rem;
     background-color: #00B478;
     position: fixed;
   }
   p {
     text-align: center;
-    height: 64px;
-    font-size: 26px;
-    line-height: 64px;
+    height: 1.706rem;
+    font-size: 0.533rem;
+    line-height: 1.706rem;
     color: white;
     font-weight: bold;
   }

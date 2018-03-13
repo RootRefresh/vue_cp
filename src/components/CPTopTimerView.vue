@@ -19,24 +19,24 @@ p{
   float: left;
 }
 #termNumber{
-  margin-left: 10px;
+  margin-left: 0.266rem;
 }
 #stopTime{
-  margin-left: 30px;
+  margin-left: 0.8rem;
 }
 .topView{
-  margin-top: 64px;
-  height: 30px;
-  line-height: 30px;
+  margin-top: 1.706rem;
+  height: 0.8rem;
+  line-height: 0.8rem;
   overflow: hidden;
   border-bottom-color: #999999;
   border-bottom-style: solid;
-  border-bottom-width: 1px;
+  border-bottom-width: 0.013rem;
   background-color: #F6F6F6;
 }
 
 .textFont{
-  font-size:14px;
+  font-size:0.186rem;
 }
 .redColor{
   color:red;

@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
+import 'lib-flexible'
 
 import 'swiper/dist/css/swiper.css'
 

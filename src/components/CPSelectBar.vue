@@ -22,25 +22,25 @@ export default {
     border-top-width: 1px;
     border-top-color: #999999;
     border-top-style: solid;
-    height: 50px;
+    height: 1.333rem;
     background-color: #F6F6F6;
   }
   .clear_btn{
     background:url("../assets/image/clear.png");
-    background-size: 20px 30px;
-    width: 20px;
-    height: 30px;
+    background-size: 0.533rem 0.8rem;
+    width: 0.533rem;
+    height: 0.8rem;
     border: none;
-    margin: 10px 0 0 20px;
+    margin: 0.2rem 0 0 0.533rem;
   }
   .next_btn{
     float: right;
-    width: 75px;
-    height: 30px;
-    margin-top: 10px;
-    margin-right: 10px;
+    width: 2rem;
+    height: 0.8rem;
+    margin-top: 0.2rem;
+    margin-right: 0.2rem;
     background-color: #00B478;
     color: white;
-    font-size: 15px;
+    font-size: 0.4rem;
   }
 </style>
