@@ -1,10 +1,10 @@
 <template>
   <div id="ball_bg" class="bg_color">
     <div class="ball-div clearfix">
-      <button class="ball red_color btn" v-for="item in redBalls" :key="item.id" v-bind:class='{red_ball_select:item.select}' v-on:click="ballChoose(item)">{{item.value}}</button>
+      <button class="ball red_color btn" v-for="item in redBalls" :key="item.id" v-bind:class='{red_ball_select:item.select}' v-on:click="ballChoose(item,true)">{{item.value}}</button>
     </div>
     <div class="ball-div clearfix blue_ball_div">
-      <button class="ball blue_color btn" v-for="item in blueBalls" :key="item.id" v-bind:class='{blue_ball_select:item.select}' v-on:click="ballChoose(item)">{{item.value}}</button>
+      <button class="ball blue_color btn" v-for="item in blueBalls" :key="item.id" v-bind:class='{blue_ball_select:item.select}' v-on:click="ballChoose(item,false)">{{item.value}}</button>
     </div>
   </div>
 </template>
@@ -16,7 +16,9 @@ export default {
     return {
       select: false,
       redBalls: [],
-      blueBalls: []
+      blueBalls: [],
+      selectRedBalls: [],
+      selectBlueBalls: []
     }
   },
   methods: {
@@ -30,8 +32,22 @@ export default {
         blue.select = false
       }
     },
-    ballChoose (ball) {
+    removeByValue (arr, val) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === val) {
+          arr.splice(i, 1)
+          break
+        }
+      }
+    },
+    ballChoose (ball, isRed) {
       ball.select = !ball.select
+      if (isRed) {
+        ball.select ? this.selectRedBalls.push(ball.value) : this.removeByValue(this.selectRedBalls, ball.value)
+      } else {
+        ball.select ? this.selectBlueBalls.push(ball.value) : this.removeByValue(this.selectBlueBalls, ball.value)
+      }
+      this.$emit('ballClick', this.selectRedBalls, this.selectBlueBalls)
     },
     createBall () {
       for (var i = 0; i < 35; i++) {

@@ -1,6 +1,7 @@
 <template>
   <div class="clearfix">
     <button class="btn clear_btn" @click="clear"></button>
+    <p class="money">{{betNum}} 注 共 <span>{{money}}</span> 元</p>
     <button class="btn next_btn">下一步</button>
   </div>
 </template>
@@ -8,11 +9,16 @@
 <script>
 export default {
   name: 'selectBar',
+  data () {
+    return {
+    }
+  },
   methods: {
     clear () {
       this.$emit('clearBallSelect')
     }
-  }
+  },
+  props: ['betNum', 'money']
 }
 </script>
 
@@ -32,6 +38,7 @@ export default {
     height: 0.8rem;
     border: none;
     margin: 0.2rem 0 0 0.533rem;
+    float: left;
   }
   .next_btn{
     float: right;
@@ -42,5 +49,13 @@ export default {
     background-color: #00B478;
     color: white;
     font-size: 0.4rem;
+  }
+  .money{
+    float: left;
+    font-size: 16px;
+    margin: 0.3rem 0 0 3rem;
+  }
+  span{
+    color: red;
   }
 </style>
