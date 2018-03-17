@@ -3,8 +3,8 @@
       <customNav></customNav>
       <p>测试</p>
       <addBet></addBet>
-      <buyList></buyList>
-      <betnNumberBar></betnNumberBar>
+      <buyList :redStr="redStr" :blueStr="blueStr"></buyList>
+      <betNumberBar></betNumberBar>
       <moneyBar></moneyBar>
     </div>
 </template>
@@ -19,6 +19,10 @@ import MoneyBar from './MoneyBar'
 export default {
   name: 'buy',
   data () {
+    return {
+      redStr: '',
+      blueStr: ''
+    }
   },
   methods: {
   },
@@ -28,6 +32,11 @@ export default {
     BuyList,
     BetNumberBar,
     MoneyBar
+  },
+  created () {
+    var a = this.$store.state.betArray
+    this.betString = a.join(' ')
+    alert(this.betString)
   }
 }
 </script>

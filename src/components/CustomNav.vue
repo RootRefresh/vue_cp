@@ -12,7 +12,11 @@ export default {
   name: 'custom-nav',
   methods: {
     back () {
-      this.$router.back()
+      console.log(window.history.length)
+      // window.history.length > 1
+      //   ? this.$router.go(-1)
+      //   : this.$router.push('/')
+      this.$router.go(-1)
     }
   }
 }
@@ -36,10 +40,10 @@ export default {
       overflow: hidden;
   }
   .back-btn{
-      display: inline;
+      /*display: inline;*/
   }
   .float_left{
-    float: left;
+    position: absolute;
   }
   button{
     margin: 0.533rem 0 auto 0.4rem;

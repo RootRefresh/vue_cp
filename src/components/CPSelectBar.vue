@@ -28,6 +28,9 @@ export default {
 <style scoped>
   @import '../assets/css/home.css';
   div{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     border-top-width: 1px;
     border-top-color: #999999;
     border-top-style: solid;

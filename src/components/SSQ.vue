@@ -17,7 +17,9 @@ export default {
   data () {
     return {
       betNum: 0,
-      money: 0
+      money: 0,
+      redBalls: [],
+      blueBalls: []
     }
   },
   methods: {
@@ -25,6 +27,8 @@ export default {
       this.$refs.ballView.clear()
     },
     ballClick (redBalls, blueBalls) {
+      this.redBalls = redBalls
+      this.blueBalls = blueBalls
       var redNum = redBalls.length
       var blueNum = blueBalls.length
       console.log(redNum, blueNum)
@@ -41,7 +45,8 @@ export default {
       }
     },
     toBuy () {
-      this.$router.push('Buy')
+      this.$router.push({ path: '/buy' })
+      this.$store.commit('setArray', this.redBalls)
     }
   },
   components: {
