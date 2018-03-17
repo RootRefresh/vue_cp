@@ -2,7 +2,7 @@
   <div class="clearfix">
     <button class="btn clear_btn" @click="clear"></button>
     <p class="money">{{betNum}} 注 共 <span>{{money}}</span> 元</p>
-    <button class="btn next_btn">下一步</button>
+    <button class="btn next_btn" @click="next">下一步</button>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
   methods: {
     clear () {
       this.$emit('clearBallSelect')
+    },
+    next () {
+      this.$emit('toBuy')
     }
   },
   props: ['betNum', 'money']

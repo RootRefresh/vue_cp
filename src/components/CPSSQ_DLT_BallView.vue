@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'redBallView',
+  name: 'SSQBallView',
   data () {
     return {
       select: false,

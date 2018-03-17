@@ -2,15 +2,15 @@
   <div class="container">
     <customNav></customNav>
     <topTimerView></topTimerView>
-    <redBallView ref="ballView" v-on:ballClick="ballClick"></redBallView>
-    <selectBar v-on:clearBallSelect="clear" :betNum="betNum" :money="money"></selectBar>
+    <SSQBallView ref="ballView" v-on:ballClick="ballClick"></SSQBallView>
+    <selectBar v-on:clearBallSelect="clear" v-on:toBuy="toBuy" :betNum="betNum" :money="money"></selectBar>
   </div>
 </template>
 
 <script>
 import CustomNav from './CustomNav'
 import TopTimerView from './CPTopTimerView'
-import RedBallView from './CPRedBallView'
+import SSQBallView from './CPSSQ_DLT_BallView'
 import SelectBar from './CPSelectBar'
 export default {
   name: 'SSQ',
@@ -39,11 +39,14 @@ export default {
         this.betNum = 0
         this.money = 0
       }
+    },
+    toBuy () {
+      this.$router.push('Buy')
     }
   },
   components: {
     TopTimerView,
-    RedBallView,
+    SSQBallView,
     SelectBar,
     CustomNav
   }

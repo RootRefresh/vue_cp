@@ -1,7 +1,9 @@
 <template>
    <div class="top clearfix">
-     <button class="float_left" @click="back">返回</button>
-     <p class="float_left">双色球</p>
+       <!--<div class="back-btn">-->
+           <button class="back-btn float_left" @click="back">返回</button>
+       <!--</div>-->
+     <p class="center-title">双色球</p>
    </div>
 </template>
 
@@ -25,6 +27,16 @@ export default {
     height: 1.706rem;
     background-color: #00B478;
     position: fixed;
+    /*display: flex;
+    justify-content: center;*/
+  }
+  .center-title{
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+  }
+  .back-btn{
+      display: inline;
   }
   .float_left{
     float: left;
@@ -35,9 +47,10 @@ export default {
     color: white;
     border: none;
     font-size: 0.373rem;
+    width: 0.8rem;
   }
   p{
-margin-left: 30%;
+/*margin-left: 30%;*/
     color: #F6F6F6;
     font-weight: bold;
     font-size: 0.48rem;
