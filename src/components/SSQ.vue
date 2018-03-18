@@ -46,7 +46,8 @@ export default {
     },
     toBuy () {
       this.$router.push({ path: '/buy' })
-      this.$store.commit('setArray', this.redBalls)
+      var tmp = {'red': this.redBalls, 'blue': this.blueBalls, 'betNum': this.betNum, 'money': this.money}
+      this.$store.commit('setBuyDic', tmp)
     }
   },
   components: {

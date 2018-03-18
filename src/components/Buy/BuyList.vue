@@ -23,9 +23,7 @@ export default {
   name: 'buy-list',
   data () {
     return {
-      tmp: [{'red': '05 07 21 25 11 30', 'blue': '01', 'way': '单式投注', 'money': '1注 2元'},
-        {'red': '05 07 21 25 11 30', 'blue': '01', 'way': '单式投注', 'money': '1注 2元'}
-      ]
+      tmp: []
     }
   },
   methods: {
@@ -40,6 +38,15 @@ export default {
     close (item) {
       this.removeByValue(this.tmp, item)
     }
+  },
+  created () {
+    var d = this.$store.state.buyDic
+    var red = d.red.join(' ')
+    var blue = d.blue.join(' ')
+    var betNum = d.betNum
+    var money = d.money
+    this.tmp.push({'red': red, 'blue': blue, 'way': '单式投注', money: betNum + '注' + money + '元'})
+    console.log(d)
   }
 }
 </script>

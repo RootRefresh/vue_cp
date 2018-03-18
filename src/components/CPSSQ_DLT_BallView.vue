@@ -51,10 +51,12 @@ export default {
     },
     createBall () {
       for (var i = 0; i < 35; i++) {
-        this.redBalls.push({select: false, value: i + 1})
+        var r = (i + 1) < 10 ? '0' + (i + 1) : (i + 1)
+        this.redBalls.push({select: false, value: r})
       }
       for (var j = 0; j < 12; j++) {
-        this.blueBalls.push({select: false, value: j + 1})
+        var b = (j + 1) < 10 ? '0' + (j + 1) : (j + 1)
+        this.blueBalls.push({select: false, value: b})
       }
     }
   },

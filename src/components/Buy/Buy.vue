@@ -3,7 +3,7 @@
       <customNav></customNav>
       <p>测试</p>
       <addBet></addBet>
-      <buyList :redStr="redStr" :blueStr="blueStr"></buyList>
+      <buyList></buyList>
       <betNumberBar></betNumberBar>
       <moneyBar></moneyBar>
     </div>
@@ -34,9 +34,6 @@ export default {
     MoneyBar
   },
   created () {
-    var a = this.$store.state.betArray
-    this.betString = a.join(' ')
-    alert(this.betString)
   }
 }
 </script>
