@@ -1,10 +1,10 @@
 <template>
   <div id="buy-list">
     <ul>
-      <li class="" v-for="item in tmp" :key="item.id">
+      <li class="" v-for="(item, index) in tmp" :key="item.id">
          <!--<div class="flex-center">-->
             <div class="top-v">
-              <button class="closeBtn" @click="close(item)">x</button>
+              <button class="closeBtn" @click="close(item, index)">x</button>
               <span class="red-ball">{{item.red}}</span>
               <span class="blue-ball">{{item.blue}}</span>
             </div>
@@ -23,7 +23,10 @@ export default {
   name: 'buy-list',
   data () {
     return {
-      tmp: []
+      tmp: [],
+      originArr: [],
+      totalMoney: 0,
+      totalBetNum: 0
     }
   },
   methods: {
@@ -35,25 +38,67 @@ export default {
         }
       }
     },
-    close (item) {
+    removeByIndex (arr, index) {
+      for (var i = 0; i < arr.length; i++) {
+        if (i === index) {
+          arr.splice(i, 1)
+          break
+        }
+      }
+    },
+    deleteOrigin (index) {
+      var d = this.originArr[index]
+      this.totalMoney -= d.money
+      this.totalBetNum -= d.betNum
+      this.changeMoneyBar()
+    },
+    changeMoneyBar () {
+      this.$emit('changeMoneyBar', this.totalBetNum, this.totalMoney)
+    },
+    close (item, index) {
+      this.deleteOrigin(index)
       this.removeByValue(this.tmp, item)
+      this.removeByIndex(this.originArr, index)
+      this.$store.commit('setBuyArray', this.originArr)
+    },
+    buildOneBet (d) {
+      var red = d.red.join(' ')
+      var blue = d.blue.join(' ')
+      var betNum = d.betNum
+      var money = d.money
+      this.totalMoney += money
+      this.totalBetNum += betNum
+      this.tmp.unshift({'red': red, 'blue': blue, 'way': '单式投注', money: betNum + '注' + money + '元'})
+    },
+    buildData () {
+      this.originArr = this.$store.state.buyArray
+      console.log('输出1', this.$store.state.buyArray, this.originArr)
+
+      var arr = this.originArr
+      for (var i = 0; i < arr.length; i++) {
+        var d = arr[i]
+        this.buildOneBet(d)
+      }
+      // this.$store.commit('setMoney', this.totalMoney)
+      // this.$store.commit('setBetNumber', this.totalBetNum)
+      this.changeMoneyBar()
+    },
+    addOneData (data) {
+      this.buildOneBet(data)
+      this.changeMoneyBar()
     }
   },
   created () {
-    var d = this.$store.state.buyDic
-    var red = d.red.join(' ')
-    var blue = d.blue.join(' ')
-    var betNum = d.betNum
-    var money = d.money
-    this.tmp.push({'red': red, 'blue': blue, 'way': '单式投注', money: betNum + '注' + money + '元'})
-    console.log(d)
+    this.buildData()
   }
 }
 </script>
 
 <style scoped>
 #buy-list{
-    margin-top: 0.133rem;
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
 }
 .top-v{
     padding-top: 0.133rem;

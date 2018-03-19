@@ -2,10 +2,10 @@
   <div id="betNumberBar">
     <div class="flex">
         <div>
-          <span>投</span> <input type="text"> <span>期</span>
+          <span>投</span> <input type="text" v-model="termNumber"> <span>期</span>
         </div>
         <div>
-          <span>投</span> <input type="text"> <span>倍</span>
+          <span>投</span> <input type="text" v-model="multiNumber"> <span>倍</span>
         </div>
       </div>
   </div>
@@ -13,7 +13,13 @@
 
 <script>
 export default {
-  name: 'bet-number-bar'
+  name: 'bet-number-bar',
+  data () {
+    return {
+      termNumber: 1,
+      multiNumber: 1
+    }
+  }
 }
 </script>
 

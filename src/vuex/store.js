@@ -5,7 +5,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     buyDic: {},
-    betArray: []
+    buyArray: [],
+    totalMoney: 0,
+    totalBetNum: 0,
+    redCount: 0,
+    blueCount: 0
   },
   mutations: {
     setBuyDic (state, d) {
@@ -14,8 +18,29 @@ export default new Vuex.Store({
       state.buyDic.betNum = d.betNum
       state.buyDic.money = d.money
     },
-    setArray (state, a) {
-      state.betArray = a
+    pushBuyArray (state, dic) {
+      state.buyArray.push(dic)
+    },
+    insertBuyArray (state, dic) {
+      state.buyArray.unshift(dic)
+    },
+    setBuyArray (state, arr) {
+      state.buyArray = arr
+    },
+    setMoney (state, m) {
+      state.totalMoney = m
+    },
+    setBetNumber (state, num) {
+      state.totalBetNum = num
+      alert(num)
+    },
+    setRedCount (state, num) {
+      state.redCount = num
+    },
+    setBlueCount (state, num) {
+      state.blueCount = num
     }
+  },
+  actions: {
   }
 })

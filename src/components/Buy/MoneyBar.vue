@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>1注 共2元</p>
+    <p>{{betNumber}} 注 共 {{money}} 元</p>
     <button>付款</button>
     <button>合买</button>
   </div>
@@ -8,7 +8,20 @@
 
 <script>
 export default {
-  name: 'money-bar'
+  name: 'money-bar',
+  data () {
+    return {
+      totalBetNum: 0,
+      totalMoney: 0
+    }
+  },
+  props: ['money', 'betNumber'],
+  computed: {
+  },
+  mounted () {
+  },
+  created () {
+  }
 }
 </script>
 
