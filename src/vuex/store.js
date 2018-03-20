@@ -6,6 +6,7 @@ export default new Vuex.Store({
   state: {
     buyDic: {},
     buyArray: [],
+    myTitle: '',
     totalMoney: 0,
     totalBetNum: 0,
     redCount: 0,
@@ -39,6 +40,9 @@ export default new Vuex.Store({
     },
     setBlueCount (state, num) {
       state.blueCount = num
+    },
+    setTitle (state, title) {
+      state.myTitle = title
     }
   },
   actions: {

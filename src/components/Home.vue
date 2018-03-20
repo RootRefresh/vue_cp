@@ -32,7 +32,7 @@ export default {
         {name: '胜负彩', info: '最高奖金500万', image: require('../assets/image/centralsfc.png')},
         {name: '双色球', info: '2元赢千万', image: require('../assets/image/centraldcb.png')},
         {name: '大乐透', info: '3元赢千万', image: require('../assets/image/centraldlt.png')},
-        {name: '福彩3', info: '天天开奖，独家红包减免25%', image: require('../assets/image/fc3d_icon.png')},
+        {name: '福彩3D', info: '天天开奖，独家红包减免25%', image: require('../assets/image/fc3d_icon.png')},
         {name: '排列三', info: '天天开奖，独家红包减免25%', image: require('../assets/image/centralp3.png')},
         {name: '任选九', info: '红包加奖高达15%', image: require('../assets/image/centralrxn.png')},
         {name: '北京单场', info: '挑战高赔率', image: require('../assets/image/centralbd.png')}
@@ -42,8 +42,11 @@ export default {
   },
   methods: {
     clickCell (name) {
-      if (name === '双色球') {
+      this.$store.commit('setTitle', name)
+      if (name === '双色球' || name === '大乐透') {
         this.$router.push('SSQ')
+      } else if (name === '福彩3D' || name === '排列三') {
+        this.$router.push('PL3')
       }
     }
   },

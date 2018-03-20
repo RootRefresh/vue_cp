@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <customNav></customNav>
+    <customNav :show-title="true"></customNav>
     <topTimerView></topTimerView>
     <SSQBallView ref="ballView" v-on:ballClick="ballClick"></SSQBallView>
     <selectBar v-on:clearBallSelect="clear" v-on:toBuy="toBuy" :betNum="betNum" :money="money"></selectBar>
@@ -10,7 +10,7 @@
 <script>
 import CustomNav from './CustomNav'
 import TopTimerView from './CPTopTimerView'
-import SSQBallView from './CPSSQ_DLT_BallView'
+import SSQBallView from './NumberType/CPSSQ_DLT_BallView'
 import SelectBar from './CPSelectBar'
 export default {
   name: 'SSQ',

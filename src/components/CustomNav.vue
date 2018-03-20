@@ -3,13 +3,19 @@
        <!--<div class="back-btn">-->
            <button class="back-btn float_left" @click="back">返回</button>
        <!--</div>-->
-     <p class="center-title">双色球</p>
+     <p class="center-title" v-if="showTitle">{{this.$store.state.myTitle}}</p>
+     <p class="center-title" v-if="!showTitle" @click="navClick">测试</p>
    </div>
 </template>
 
 <script>
 export default {
   name: 'custom-nav',
+  data () {
+    return {
+      navShow: false
+    }
+  },
   methods: {
     back () {
       console.log(window.history.length)
@@ -17,7 +23,15 @@ export default {
       //   ? this.$router.go(-1)
       //   : this.$router.push('/')
       this.$router.go(-1)
+    },
+    navClick () {
+      this.navShow = !this.navShow
+      this.$emit('navClick', this.navShow)
     }
+  },
+  props: ['showTitle'],
+  created () {
+
   }
 }
 </script>

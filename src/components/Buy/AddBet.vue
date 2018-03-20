@@ -31,7 +31,7 @@ export default {
     width: 100%;
   }
 .bet-div{
-  display: -webkit-flex;  
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
   align-items: center;

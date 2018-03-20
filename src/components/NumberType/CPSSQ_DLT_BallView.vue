@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style scoped>
-@import url('../assets/css/home.css');
+@import url('../../assets/css/home.css');
 #ball_bg{
     height:13.946rem
 }
