@@ -75,12 +75,17 @@ export default {
       }
     },
     buildData () {
-      return this.bArr.join(' ') + ' | ' + this.sArr.join(' ') + ' | ' + this.gArr.join(' ')
+      if (this.playType === '直选') {
+        return this.bArr.join(' ') + ' | ' + this.sArr.join(' ') + ' | ' + this.gArr.join(' ')
+      }else{
+        return this.gArr.join(' ')
+      }
     },
     toBuy () {
       this.$router.push({path: '/buy'})
       var d = {'red': this.buildData(), 'way': this.playType, 'betNum': this.betNum, 'money': 2 * this.betNum}
       this.$store.commit('pushBuyArray', d)
+      this.$store.commit('setPlayType', this.playType)
     }
   },
   components: {

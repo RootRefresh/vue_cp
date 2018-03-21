@@ -50,6 +50,8 @@ export default {
       this.$store.commit('pushBuyArray', tmp)
       this.$store.commit('setRedCount', 35)
       this.$store.commit('setBlueCount', 12)
+      this.$store.commit('setPlayType', '单式投注')
+
     }
   },
   components: {

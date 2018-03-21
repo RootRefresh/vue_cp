@@ -26,7 +26,8 @@ export default {
       tmp: [],
       originArr: [],
       totalMoney: 0,
-      totalBetNum: 0
+      totalBetNum: 0,
+      playType: ''
     }
   },
   methods: {
@@ -65,11 +66,12 @@ export default {
       var red = ''
       var blue = ''
       if (d.red instanceof Array) {
-        red = d.red.join(' ')
+        var sepString = this.playType === '直选' ? ' | ' : ' '
+        red = d.red.join(sepString)
       } else {
         red = d.red
       }
-      if (d.red instanceof Array) {
+      if (d.blue instanceof Array) {
         blue = d.blue.join(' ')
       } else {
         blue = ''
@@ -78,7 +80,7 @@ export default {
       var money = d.money
       this.totalMoney += money
       this.totalBetNum += betNum
-      this.tmp.unshift({'red': red, 'blue': blue, 'way': '单式投注', money: betNum + '注' + money + '元'})
+      this.tmp.unshift({'red': red, 'blue': blue, 'way': this.playType, money: betNum + '注' + money + '元'})
     },
     buildData () {
       this.originArr = this.$store.state.buyArray
@@ -100,6 +102,7 @@ export default {
   },
   created () {
     this.buildData()
+    this.playType = this.$store.state.playType
   }
 }
 </script>
