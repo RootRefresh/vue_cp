@@ -3,7 +3,7 @@
       <customNav :showTitle="false" @navClick="navClick"></customNav>
       <NavPopView v-show="showPop" @choosePlayType="choosePlayType" @dissBlackView="dissBlackView"></NavPopView>
       <topTimerView></topTimerView>
-      <PL3BallView ref="ballView" @ballClick="ballClick" ></PL3BallView>
+      <PL3BallView ref="ballView" :zx-show="zxShow" @ballClick="ballClick" ></PL3BallView>
       <selectBar v-on:toBuy="toBuy" :betNum="betNum"></selectBar>
     </div>
 </template>
@@ -24,7 +24,8 @@ export default {
       betNum: 0,
       bArr: [],
       sArr: [],
-      gArr: []
+      gArr: [],
+      zxShow: true
     }
   },
   methods: {
@@ -32,8 +33,11 @@ export default {
       this.showPop = show
     },
     choosePlayType (playType) {
+      // if (playType !== this.playType) {
+      this.$refs.ballView.clear()
+      // }
       this.playType = playType
-      console.log(playType)
+      playType === '直选' ? this.zxShow = true : this.zxShow = false
     },
     dissBlackView () {
       this.showPop = false
@@ -42,20 +46,41 @@ export default {
       var betNumber = bArr.length * sArr.length * gArr.length
       return betNumber
     },
+    zx3Money (arr) {
+      var l = arr.length
+      if (l < 2) {
+        return 0
+      } else {
+        return l * (l - 1)
+      }
+    },
+    zx6Money (arr) {
+      var l = arr.length
+      if (l < 3) {
+        return 0
+      } else {
+        return l * (l - 1) * (l - 2) / 6
+      }
+    },
     ballClick (bArr, sArr, gArr) {
       this.bArr = bArr
       this.sArr = sArr
       this.gArr = gArr
       if (this.playType === '直选') {
         this.betNum = this.zxMoney(bArr, sArr, gArr)
+      } else if (this.playType === '组选三') {
+        this.betNum = this.zx3Money(gArr)
+      } else {
+        this.betNum = this.zx6Money(gArr)
       }
     },
     buildData () {
-      return this.bArr.join(' ') + '|' + this.sArr.join(' ') + '|' + this.gArr.join(' ')
+      return this.bArr.join(' ') + ' | ' + this.sArr.join(' ') + ' | ' + this.gArr.join(' ')
     },
     toBuy () {
       this.$router.push({path: '/buy'})
-      // var d = {'balls': this.buildData(), 'type': this.playType, 'betNum': this.betNum}
+      var d = {'red': this.buildData(), 'way': this.playType, 'betNum': this.betNum, 'money': 2 * this.betNum}
+      this.$store.commit('pushBuyArray', d)
     }
   },
   components: {

@@ -23,6 +23,7 @@ export default {
       //   ? this.$router.go(-1)
       //   : this.$router.push('/')
       this.$router.go(-1)
+      this.$store.commit('setBuyArray', [])
     },
     navClick () {
       this.navShow = !this.navShow

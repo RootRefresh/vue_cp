@@ -1,11 +1,19 @@
 <template>
 <div class="ball-div clearfix">
-  <div class="clearfix flex" v-for="n in 3" :key="n">
+  <div v-show="zxShow" class="clearfix flex" v-for="n in 3" :key="n">
     <p class="">{{ ballTags[n - 1] }}</p>
     <div class="">
         <button class="ball btn red_color " :class='{ball_select:ball.select}' @click="ballChoose(ball)" v-for="ball in balls[n-1]"  :key="ball.id">
              {{ball.value}}
         </button>
+    </div>
+  </div>
+  <div v-show="!zxShow" class="flex">
+    <p>选号</p>
+    <div class="">
+      <button class="ball btn red_color " :class='{ball_select:ball.select}' @click="ballChoose(ball)" v-for="ball in balls[2]"  :key="ball.id">
+        {{ball.value}}
+      </button>
     </div>
   </div>
 </div>
@@ -23,6 +31,7 @@ export default {
       gArr: []
     }
   },
+  props: ['zxShow'],
   methods: {
     createBall () {
       for (var j = 0; j < 3; j++) {
@@ -53,6 +62,15 @@ export default {
         isSelect ? this.gArr.push(ball.value) : this.removeByValue(this.gArr, ball.value)
       }
       this.$emit('ballClick', this.bArr, this.sArr, this.gArr)
+    },
+    clear () {
+      for (var j = 0; j < 3; j++) {
+        var tmpArr = this.balls[j]
+        for (var i = 0; i < 10; i++) {
+          var ball = tmpArr[i]
+          ball.select = false
+        }
+      }
     }
   },
   created () {
@@ -68,7 +86,6 @@ export default {
     padding: 0.4rem 0;
   }
   .ball{
-    /*float: left;*/
     text-align:center;
     vertical-align:middle;
     width:0.7rem;

@@ -31,6 +31,7 @@ export default {
           break
       }
       this.$emit('choosePlayType', playType)
+      this.dissBlackView()
     },
     dissBlackView () {
       this.$emit('dissBlackView')

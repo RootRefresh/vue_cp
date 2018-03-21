@@ -62,8 +62,18 @@ export default {
       this.$store.commit('setBuyArray', this.originArr)
     },
     buildOneBet (d) {
-      var red = d.red.join(' ')
-      var blue = d.blue.join(' ')
+      var red = ''
+      var blue = ''
+      if (d.red instanceof Array) {
+        red = d.red.join(' ')
+      } else {
+        red = d.red
+      }
+      if (d.red instanceof Array) {
+        blue = d.blue.join(' ')
+      } else {
+        blue = ''
+      }
       var betNum = d.betNum
       var money = d.money
       this.totalMoney += money
