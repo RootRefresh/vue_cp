@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{betNumber}} 注 共 {{money}} 元</p>
+    <p>{{betNumber}} 注 共 {{money * multiNumber}} 元</p>
     <button>付款</button>
     <button>合买</button>
   </div>
@@ -15,7 +15,7 @@ export default {
       totalMoney: 0
     }
   },
-  props: ['money', 'betNumber'],
+  props: ['money', 'betNumber', 'multiNumber'],
   computed: {
   },
   mounted () {

@@ -5,7 +5,7 @@
           <span>投</span> <input type="text" v-model="termNumber"> <span>期</span>
         </div>
         <div>
-          <span>投</span> <input type="text" v-model="multiNumber"> <span>倍</span>
+          <span>投</span> <input type="text" v-model="multiNumber" @input="inputFunc"> <span>倍</span>
         </div>
       </div>
   </div>
@@ -19,7 +19,13 @@ export default {
       termNumber: 1,
       multiNumber: 1
     }
+  },
+  methods: {
+    inputFunc () {
+      this.$emit('multiChange', this.multiNumber)
+    }
   }
+  // props: ['termNumber', 'multiNumber']
 }
 </script>
 

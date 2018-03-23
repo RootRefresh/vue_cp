@@ -4,7 +4,7 @@
            <button class="back-btn float_left" @click="back">返回</button>
        <!--</div>-->
      <p class="center-title" v-if="showTitle">{{this.$store.state.myTitle}}</p>
-     <p class="center-title" v-if="!showTitle" @click="navClick">测试</p>
+     <p class="center-title" v-if="!showTitle" @click="navClick">{{title}}</p>
    </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
       this.$emit('navClick', this.navShow)
     }
   },
-  props: ['showTitle'],
+  props: ['showTitle', 'title'],
   created () {
 
   }

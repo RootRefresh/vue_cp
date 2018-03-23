@@ -1,6 +1,6 @@
 <template>
     <div>
-      <customNav :showTitle="false" @navClick="navClick"></customNav>
+      <customNav :title="playType" :showTitle="false" @navClick="navClick"></customNav>
       <NavPopView v-show="showPop" @choosePlayType="choosePlayType" @dissBlackView="dissBlackView"></NavPopView>
       <topTimerView></topTimerView>
       <PL3BallView ref="ballView" :zx-show="zxShow" @ballClick="ballClick" ></PL3BallView>
@@ -77,7 +77,7 @@ export default {
     buildData () {
       if (this.playType === '直选') {
         return this.bArr.join(' ') + ' | ' + this.sArr.join(' ') + ' | ' + this.gArr.join(' ')
-      }else{
+      } else {
         return this.gArr.join(' ')
       }
     },

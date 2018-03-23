@@ -27,7 +27,7 @@ export default {
     top: 1.706rem;
     z-index: 2;
     height: 1.2rem;
-    background: #777777;
+    background: #cdcdcd;
     width: 100%;
   }
 .bet-div{

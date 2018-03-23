@@ -96,13 +96,14 @@ export default {
       this.changeMoneyBar()
     },
     addOneData (data) {
+      console.log(data)
       this.buildOneBet(data)
       this.changeMoneyBar()
     }
   },
   created () {
-    this.buildData()
     this.playType = this.$store.state.playType
+    this.buildData()
   }
 }
 </script>
