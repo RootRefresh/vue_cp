@@ -1,10 +1,10 @@
 <template>
     <div>
-      <customNav :title="playType" :showTitle="false" @navClick="navClick"></customNav>
+      <customNav @navBack="back" :title="playType" :showTitle="false" @navClick="navClick"></customNav>
       <NavPopView v-show="showPop" @choosePlayType="choosePlayType" @dissBlackView="dissBlackView"></NavPopView>
       <topTimerView></topTimerView>
       <PL3BallView ref="ballView" :zx-show="zxShow" @ballClick="ballClick" ></PL3BallView>
-      <selectBar v-on:toBuy="toBuy" :betNum="betNum"></selectBar>
+      <selectBar @clearBallSelect="clear" v-on:toBuy="toBuy" :betNum="betNum"></selectBar>
     </div>
 </template>
 
@@ -29,8 +29,15 @@ export default {
     }
   },
   methods: {
+    clear () {
+      this.betNum = 0
+      this.$refs.ballView.clear()
+    },
     navClick (show) {
       this.showPop = show
+    },
+    back () {
+      this.$store.commit('setPlayType', '直选')
     },
     choosePlayType (playType) {
       // if (playType !== this.playType) {
@@ -87,6 +94,13 @@ export default {
       this.$store.commit('pushBuyArray', d)
       this.$store.commit('setPlayType', this.playType)
     }
+  },
+  created () {
+    this.playType = this.$store.state.playType
+    if (this.playType === '') {
+      this.playType = '直选'
+    }
+    this.playType === '直选' ? this.zxShow = true : this.zxShow = false
   },
   components: {
     CustomNav,

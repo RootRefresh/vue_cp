@@ -11,7 +11,8 @@ export default new Vuex.Store({
     totalBetNum: 0,
     redCount: 0,
     blueCount: 0,
-    playType: ''
+    playType: '',
+    lotteryName: ''
   },
   mutations: {
     setBuyDic (state, d) {
@@ -44,6 +45,9 @@ export default new Vuex.Store({
     },
     setTitle (state, title) {
       state.myTitle = title
+    },
+    setLotteryName (state, name) {
+      state.lotteryName = name
     },
     setPlayType (state, type) {
       state.playType = type

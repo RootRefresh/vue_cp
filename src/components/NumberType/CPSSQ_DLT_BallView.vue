@@ -31,6 +31,8 @@ export default {
         var blue = this.blueBalls[j]
         blue.select = false
       }
+      this.selectRedBalls = []
+      this.selectBlueBalls = []
     },
     removeByValue (arr, val) {
       for (var i = 0; i < arr.length; i++) {

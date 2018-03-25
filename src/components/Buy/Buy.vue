@@ -1,6 +1,6 @@
 <template>
     <div>
-      <customNav></customNav>
+      <customNav :title="title" :showTitle="true"></customNav>
       <p>测试</p>
       <addBet @randomOneBet="randomOneBet"></addBet>
       <buyList @changeMoneyBar="changeMoneyBar" ref="buyList"></buyList>
@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       money: 0,
+      title: '',
       betNumber: 0,
       redCount: '',
       blueCount: '',
@@ -115,7 +116,7 @@ export default {
   },
   created () {
     this.playType = this.$store.state.playType
-    console.log(this.playType)
+    this.title = this.$store.state.lotteryName
   }
 }
 </script>

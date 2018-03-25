@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <customNav :show-title="true"></customNav>
+    <customNav @navBack="back" :show-title="true"></customNav>
     <topTimerView></topTimerView>
     <SSQBallView ref="ballView" v-on:ballClick="ballClick"></SSQBallView>
     <selectBar v-on:clearBallSelect="clear" v-on:toBuy="toBuy" :betNum="betNum" :money="money"></selectBar>
@@ -23,7 +23,12 @@ export default {
     }
   },
   methods: {
+    back () {
+      this.$store.commit('setPlayType', '')
+    },
     clear () {
+      this.betNum = 0
+      this.money = 0
       this.$refs.ballView.clear()
     },
     ballClick (redBalls, blueBalls) {

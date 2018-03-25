@@ -64,6 +64,9 @@ export default {
       this.$emit('ballClick', this.bArr, this.sArr, this.gArr)
     },
     clear () {
+      this.bArr = []
+      this.sArr = []
+      this.gArr = []
       for (var j = 0; j < 3; j++) {
         var tmpArr = this.balls[j]
         for (var i = 0; i < 10; i++) {

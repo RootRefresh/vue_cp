@@ -48,6 +48,7 @@ export default {
       } else if (name === '福彩3D' || name === '排列三') {
         this.$router.push('PL3')
       }
+      this.$store.commit('setLotteryName', name)
     }
   },
   components: {
