@@ -18,7 +18,9 @@ export default {
       redBalls: [],
       blueBalls: [],
       selectRedBalls: [],
-      selectBlueBalls: []
+      selectBlueBalls: [],
+      redNumber: 0,
+      blueNumber: 0
     }
   },
   methods: {
@@ -52,11 +54,18 @@ export default {
       this.$emit('ballClick', this.selectRedBalls, this.selectBlueBalls)
     },
     createBall () {
-      for (var i = 0; i < 35; i++) {
+      if (this.$store.state.lotteryName === '双色球') {
+        this.redNumber = 33
+        this.blueNumber = 16
+      } else {
+        this.redNumber = 35
+        this.blueNumber = 12
+      }
+      for (var i = 0; i < this.redNumber; i++) {
         var r = (i + 1) < 10 ? '0' + (i + 1) : (i + 1)
         this.redBalls.push({select: false, value: r})
       }
-      for (var j = 0; j < 12; j++) {
+      for (var j = 0; j < this.blueNumber; j++) {
         var b = (j + 1) < 10 ? '0' + (j + 1) : (j + 1)
         this.blueBalls.push({select: false, value: b})
       }

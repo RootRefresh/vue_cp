@@ -30,7 +30,7 @@ export default new Router({
       component: Buy
     }
 
-  ],
-  mode: 'history'
+  ]
+  // mode: 'history'
 
 })

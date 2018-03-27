@@ -31,6 +31,9 @@ export default {
   methods: {
     clear () {
       this.betNum = 0
+      this.bArr = []
+      this.sArr = []
+      this.gArr = []
       this.$refs.ballView.clear()
     },
     navClick (show) {
@@ -40,11 +43,12 @@ export default {
       this.$store.commit('setPlayType', '直选')
     },
     choosePlayType (playType) {
-      // if (playType !== this.playType) {
-      this.$refs.ballView.clear()
-      // }
-      this.playType = playType
-      playType === '直选' ? this.zxShow = true : this.zxShow = false
+      if (playType !== this.playType) {
+        this.$store.commit('setBuyArray', [])
+        this.$refs.ballView.clear()
+        this.playType = playType
+        playType === '直选' ? this.zxShow = true : this.zxShow = false
+      }
     },
     dissBlackView () {
       this.showPop = false
